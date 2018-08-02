@@ -21,7 +21,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'net.linguica.maven-settings'
 
 group 'com.anigenero.junit'
-version '1.0.0'
+version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.10
 
@@ -51,7 +51,7 @@ publishing {
     repositories {
         maven {
             name 'anigenero-repo'
-            url 'http://repo.anigenero.com/repository/' + ((version.contains('SNAPSHOT')) ? 'anigenero-maven-snapshot' : 'anigenero-maven-release')
+            url 'http://repo.anigenero.com/repository/' + ((version.contains('SNAPSHOT')) ? 'maven-snapshot' : 'maven-release')
         }
     }
 }
