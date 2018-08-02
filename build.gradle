@@ -1,0 +1,57 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.hibernate.build.gradle:gradle-maven-publish-auth:2.0.1'
+        classpath 'net.linguica.gradle:maven-settings-plugin:0.5'
+    }
+}
+
+
+plugins {
+    id 'maven'
+}
+
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+apply plugin: 'net.linguica.maven-settings'
+
+group 'com.anigenero.junit'
+version '1.0.0'
+
+sourceCompatibility = 1.10
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+ext {
+    junitVersion = '5.2.+'
+}
+
+dependencies {
+
+    implementation group: 'org.mockito', name: 'mockito-core', version: '2.18.+'
+    implementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junitVersion
+    implementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junitVersion
+
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            name 'anigenero-repo'
+            url 'http://repo.anigenero.com/repository/' + ((version.contains('SNAPSHOT')) ? 'anigenero-maven-snapshot' : 'anigenero-maven-release')
+        }
+    }
+}
