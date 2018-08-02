@@ -8,9 +8,7 @@ This library provides a Mockito extenstion for injecting annotated mocks in JUni
 In your build.gradle, specify the repo and dependencies
 ```groovy
 repositories {
-    maven {
-        url 'http://repo.anigenero.com/repository/maven-public'
-    }
+    jcenter()
 }
 
 dependencies {
