@@ -1,5 +1,7 @@
 # junit-mockito-extension
 
+[![Build Status](https://travis-ci.org/anigenero/junit-mockito-extension.svg?branch=master)](https://travis-ci.org/anigenero/junit-mockito-extension)
+
 This library provides a Mockito extenstion for injecting annotated mocks in JUnit 5 
 
 ### Setup ###
