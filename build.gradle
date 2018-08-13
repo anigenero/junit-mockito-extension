@@ -23,7 +23,7 @@ apply plugin: 'net.linguica.maven-settings'
 apply plugin: 'com.jfrog.bintray'
 
 group 'com.anigenero.junit'
-version '1.0.2'
+version '1.0.3'
 
 sourceCompatibility = 1.10
 
