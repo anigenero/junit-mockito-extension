@@ -57,10 +57,45 @@ bintray {
     }
 }
 
+task sourceJar(type: Jar) {
+    classifier 'sources'
+    from sourceSets.main.allJava
+}
+
+def pomConfig = {
+
+    licenses {
+        license {
+            name "MIT"
+            url "https://opensource.org/licenses/MIT"
+            distribution "repo"
+        }
+    }
+    developers {
+        developer {
+            id "anigenero"
+            name "Robin Schultz"
+            email "robin@anigenero.com"
+        }
+    }
+
+    scm {
+        url "https://github.com/anigenero/junit-mockito-extension"
+    }
+
+}
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
+            artifact tasks.sourceJar
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('description', 'Extension for Mockito testing within JUnit 5')
+                root.appendNode('name', 'junit-mockito-extension')
+                root.children().last() + pomConfig
+            }
         }
     }
 }
