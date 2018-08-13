@@ -53,7 +53,7 @@ bintray {
         name = 'junit-mockito-extension'
         userOrg = System.getenv('BINTRAY_USERNAME')
         licenses = ['MIT']
-        vcsUrl = 'https://github.com/bintray/gradle-bintray-plugin.git'
+        vcsUrl = 'https://github.com/anigenero/junit-mockito-extension.git'
     }
 }
 
